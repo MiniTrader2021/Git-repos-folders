@@ -1,0 +1,37 @@
+Here is my 2 cents!
+I have been trying to use the same project folder when my first submit is not successful and I am given a new Repo. ( I didn’t necessarily wanted just to use git clone.
+Here is an example for libft project:
+
+Stuck standard set up is as below:
+I have Libft folder
+I have local git on libft folder
+I have remote git for libft folder
+
+I failed the first Libft due to Makefile was not Capital, now I have a new Git Repository.
+I would like to use the existing libft folder and files and just link it to the new Repo.
+
+I found the below steps covers that process and also along the way does some checks.
+All the below commands have been used while in libft folder
+
+Git remote -v (shows the current git Repo address and since I had submitted the project I no longer have push access to it)
+You would see similar 2 lines as shown below
+origin	git@vogsphere.42adel.org.au:vogsphere/intra-uuid-………… (fetch)
+origin	git@vogsphere.42adel.org.au:vogsphere/intra-uuid-…………. (push)
+
+I discovered the name origin is actually an alias for the full URL address! and it could be set as anything
+
+Now first I need to remove the current link by using the below command:
+
+Git remote rm origin ( remember origin actually means the full URL address)
+Then if you type again
+Git remote -v ( you should not see anything, as the link is now removed)
+
+Now to link the new address:
+Git remote add origin < new URL address>. ( as mentioned above this command also sets the URL address to the alias origin)
+
+This links your folder to the new URL, however there is nothing in it as yet and we need to git push
+
+If you type git push it will give you an error message with the exact command you need to type to push the info upstream
+
+git push --set-upstream origin master
+The screen will show the activities taking place to upload the files.
